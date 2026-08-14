@@ -12,7 +12,9 @@ class ListaDoblemente:
         self.tamano = 0     # cantidad de nodos en la lista
 
     def listaVacia(self):
-        return self.cabeza is None  # determina si la cabeza es None
+        if(self.cabeza is None):
+            return True
+        return False
 
     def insertarAlInicio(self, valor):
         nuevo_nodo = Nodo(valor)
@@ -176,30 +178,3 @@ class ListaDoblemente:
 
         self.tamano -= 1
         return valorEliminado
-    
-
-
-        
-       
-if __name__ == "__main__":
-# Crear la lista doblemente enlazada
-    lista = ListaDoblemente()
-    try:
-        with open("datos.txt", "r") as archivo:
-            for linea in archivo:
-                linea = linea.strip()
-                # Evitar líneas vacías
-                if linea != "":
-                    valor = int(linea)
-                    # Insertar el valor en la lista
-                    lista.insertarAlInicio(valor)
-                    lista.imprimirAdelante()
-                    print(f"Cantidad de elementos: {lista.cantidadElementos()}")
-
-    except FileNotFoundError:
-        print("Error: el archivo datos.txt no existe.")
-        exit()
-
-    except ValueError:
-        print("Error: el archivo contiene un dato que no es entero.")
-        exit()
