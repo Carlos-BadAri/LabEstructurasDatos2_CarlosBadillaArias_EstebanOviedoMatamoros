@@ -66,13 +66,13 @@ class ListaDoblemente:
             print("La lista esta vacia")
             return False
         actual = self.cabeza
-        pocicion = 0
+        posicion = 0
         while actual:
             if actual.valor == valor:
-                return None
+                return pocicion  # Devuelve la posición del elemento encontrado
             actual = actual.siguiente
             pocicion += 1
-        return -1 #El elemento no se encontro.
+        return -1  # El elemento no se encontro.
 
     def insertarAlFinal(self, valor):
         nuevo_nodo = Nodo(valor)
@@ -121,7 +121,7 @@ class ListaDoblemente:
         self.tamano += 1
 
     def eliminarAlInicio(self):
-        if self.estaVacia():
+        if self.listaVacia():
             print("No se puede eliminar ya que la lista esta vacia")
             return None
 
@@ -141,7 +141,7 @@ class ListaDoblemente:
 
 
     def eliminarAlMedio(self, posicion):
-        if self.estaVacia():
+        if self.listaVacia():
             print("No se puede eliminar ya que la lista esta vacia")
             return None
 
@@ -177,29 +177,4 @@ class ListaDoblemente:
         self.tamano -= 1
         return valorEliminado
     
-
-
-        
-       
-if __name__ == "__main__":
-# Crear la lista doblemente enlazada
-    lista = ListaDoblemente()
-    try:
-        with open("datos.txt", "r") as archivo:
-            for linea in archivo:
-                linea = linea.strip()
-                # Evitar líneas vacías
-                if linea != "":
-                    valor = int(linea)
-                    # Insertar el valor en la lista
-                    lista.insertarAlInicio(valor)
-                    lista.imprimirAdelante()
-                    print(f"Cantidad de elementos: {lista.cantidadElementos()}")
-
-    except FileNotFoundError:
-        print("Error: el archivo datos.txt no existe.")
-        exit()
-
-    except ValueError:
-        print("Error: el archivo contiene un dato que no es entero.")
-        exit()
+    
