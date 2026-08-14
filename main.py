@@ -1,4 +1,4 @@
-from listaDoblemente import ListaDoblemente
+from ListaDoblemente import ListaDoblemente
 
 if __name__ == "__main__":
 # Crear la lista doblemente enlazada
