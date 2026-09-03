@@ -9,7 +9,7 @@ if __name__ == "__main__":
                 linea = linea.strip()
                 # Evitar líneas vacías
                 if linea != "":
-                    valor = linea
+                    valor = int(linea)
                     # Insertar el valor en la lista
                     lista.insertarAlInicio(valor)
                     lista.imprimirAdelante()
@@ -17,4 +17,8 @@ if __name__ == "__main__":
 
     except FileNotFoundError:
         print("Error: el archivo datos.txt no existe.")
+        exit()
+
+    except ValueError:
+        print("Error: el archivo contiene un dato que no es entero.")
         exit()
